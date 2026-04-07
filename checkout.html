@@ -28,10 +28,10 @@
 
     /* ── TOPBAR ── */
     .checkout-topbar{
-      background:var(--wh);border-bottom:2px solid var(--pkl);
+      /* background:var(--wh);border-bottom:2px solid var(--pkl); */
       padding:0 5%;height:64px;display:flex;align-items:center;
       justify-content:space-between;position:sticky;top:0;z-index:100;
-      box-shadow:0 2px 16px rgba(0,0,0,.06);
+      /* box-shadow:0 2px 16px rgba(0,0,0,.06); */
     }
 
     .topbar-secure{display:flex;align-items:center;gap:6px;font-size:.82rem;color:var(--text-light);font-weight:600}
@@ -46,8 +46,8 @@
     .ts-arrow{color:#ddd;font-size:.9rem;padding:0 4px}
 
     /* ── PROGRESS BAR ── */
-    .progress-strip{height:4px;background:var(--pkl);position:relative}
-    .progress-fill{height:100%;background:linear-gradient(90deg,var(--pk),var(--pu),var(--sk));width:33%;transition:width .5s ease;border-radius:0 2px 2px 0}
+    .progress-strip{height:4px;position:relative}
+
 
     /* ── MAIN LAYOUT ── */
     .checkout-main{
@@ -621,6 +621,33 @@
       </div>
     </div>
   </div>
+	<!-- HERO -->
+<div class="page-hero">
+  <span class="hero-eyebrow">Legal · NutriBuddy Kids</span>
+  <h1 class="hero-title">Check<span>Out</span></h1>
+  <p class="hero-subtitle">Please read these terms carefully before using our website or purchasing our products. They govern your relationship with NutriBuddy.</p>
+  <div class="hero-meta">
+    <div class="meta-pill">📅 Last Updated: June 1, 2025</div>
+    <div class="meta-pill">🏢 NutriBuddy Kids Pvt. Ltd.</div>
+    <div class="meta-pill">🇮🇳 Governed by Indian Law</div>
+  </div>
+</div>
+	<!-- Menu Overlay -->
+	<div class="menu-overlay" id="menuOverlay"></div>
+
+	<!-- Mobile Dropdown Menu -->
+	<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+		<ul>
+			<li><a href="#"><span class="link-emoji"></span> Home</a></li>
+			<li><a href="#"><span class="link-emoji"></span> About Us</a></li>
+			<li><a href="#"><span class="link-emoji"></span> Products</a></li>
+			<li><a href="#"><span class="link-emoji"></span> Personalized Diet Chart</a></li>
+			<li><a href="#"><span class="link-emoji"></span> Testimonials</a></li>
+		</ul>
+		<div class="mobile-cta-wrap">
+			<a href="#">Contact Us</a>
+		</div>
+	</div>
 
 <!-- ══ TOPBAR ══ -->
 <header class="checkout-topbar">

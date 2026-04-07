@@ -226,7 +226,7 @@ nav {
   left: 0;
   right: 0;
   z-index: 1000;
-  height: 68px;
+  height: 100px;
   padding: 0 5%;
   display: flex;
   align-items: center;
@@ -244,9 +244,9 @@ nav.scrolled {
 
 /* Logo */
 .logo-new img {
-  width: 162px !important;
+  width: 250px !important;
   display: block;
-  margin: -38px;
+  margin: -55px;
 }
 
 /* Desktop Nav Links */
@@ -669,6 +669,33 @@ background: linear-gradient(135deg, var(--pk), #6360e2);
 }
 
 
+/* breadcrumb */
+.page-hero{
+  background:linear-gradient(135deg,var(--dk) 0%,#260050 50%,#0d0030 100%);
+  padding:130px 5% 56px;
+  position:relative;overflow:hidden;
+  text-align:center;
+}
+.page-hero::before{content:'';position:absolute;top:-80px;right:-80px;width:360px;height:360px;background:radial-gradient(circle,rgba(255,77,143,.12),transparent 65%);border-radius:50%;pointer-events:none}
+.page-hero::after{content:'';position:absolute;bottom:-60px;left:-60px;width:280px;height:280px;background:radial-gradient(circle,rgba(124,58,237,.1),transparent 65%);border-radius:50%;pointer-events:none}
+.hero-eyebrow{font-family:'Nunito',sans-serif;font-weight:900;font-size:.72rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--pk);margin-bottom:12px;display:block;position:relative;z-index:2}
+.hero-title{font-family:'Fredoka One',cursive;font-size:clamp(2rem,4vw,3rem);color:#fff;margin-bottom:14px;position:relative;z-index:2;line-height:1.1}
+.hero-title span{color:var(--ye)}
+.hero-subtitle{font-size:.95rem;color:rgba(255,255,255,.55);max-width:520px;margin:0 auto 24px;line-height:1.7;position:relative;z-index:2}
+.hero-meta{display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;position:relative;z-index:2}
+.meta-pill{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:50px;padding:7px 16px;font-family:'Nunito',sans-serif;font-weight:800;font-size:.75rem;color:rgba(255,255,255,.7);display:flex;align-items:center;gap:6px}
+		.pp-layout {
+		    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 5% 80px;
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 36px;
+    align-items: start;
+
+		}
+
+
 /* ══════════════════════════════════════════
    05. HERO SLIDER
 ══════════════════════════════════════════ */
@@ -699,11 +726,11 @@ background: linear-gradient(135deg, var(--pk), #6360e2);
     }
 
     .slide-1 {
-      background: linear-gradient(145deg, #FFF0FA 0%, #F0E5FF 50%, #FFDCF0 100%)
+      background: linear-gradient(145deg, #fff0f3 0%, #ffe5f8 50%, #ffdcee 100%)
     }
 
     .slide-2 {
-      background: linear-gradient(145deg, #E6FBFF 0%, #DDF0FF 50%, #E5FFEE 100%)
+      background: linear-gradient(145deg, #e6ffe6 0%, #e1ffdd 50%, #d4f6e0 100%)
     }
 
     .slide-3 {
@@ -721,7 +748,7 @@ background: linear-gradient(135deg, var(--pk), #6360e2);
     .b1 {
       width: 500px;
       height: 500px;
-      background: var(--pk);
+      background: rgb(239, 103, 103);
       top: -120px;
       right: -80px
     }
@@ -729,7 +756,7 @@ background: linear-gradient(135deg, var(--pk), #6360e2);
     .b2 {
       width: 360px;
       height: 360px;
-      background: var(--pu);
+      background: rgb(244, 62, 62);
       bottom: -80px;
       left: 5%;
       animation-delay: 3s
@@ -771,8 +798,8 @@ background: linear-gradient(135deg, var(--pk), #6360e2);
     }
 
     .badge-sk {
-      background: var(--skl);
-      color: #0088bb
+      background: rgb(181, 239, 181);
+      color: #ffffff
     }
 
     .badge-ye {
@@ -790,7 +817,7 @@ background: linear-gradient(135deg, var(--pk), #6360e2);
 
     .htitle .pop {
       display: inline-block;
-      color: var(--pk);
+      color: rgb(208, 13, 13);
       position: relative
     }
 
@@ -808,11 +835,11 @@ background: linear-gradient(135deg, var(--pk), #6360e2);
     }
 
     .htitle .blue {
-      color: var(--sk)
+      color: rgb(52, 197, 52)
     }
 
     .htitle .green {
-      color: var(--mn)
+      color:rgb(213 128 16);
     }
 
     .htitle .orange {
@@ -869,6 +896,7 @@ background: linear-gradient(135deg, var(--pk), #6360e2);
       color: #fff;
       box-shadow: 0 8px 28px rgba(255, 77, 143, .42)
     }
+    
 
     .hbtn-main:hover {
       transform: translateY(-4px) scale(1.04);
@@ -876,7 +904,7 @@ background: linear-gradient(135deg, var(--pk), #6360e2);
     }
 
     .hbtn-sky {
-      background: linear-gradient(135deg, var(--sk), #0088bb);
+      background: linear-gradient(135deg, rgb(111, 241, 82), #18a31b);
       color: #fff;
       box-shadow: 0 8px 28px rgba(0, 191, 255, .38)
     }
@@ -887,7 +915,8 @@ background: linear-gradient(135deg, var(--pk), #6360e2);
     }
 
     .hbtn-or {
-      background: linear-gradient(135deg, var(--or), #c04010);
+      background: linear-gradient(135deg, rgb(220, 178, 41)
+      , #c04010);
       color: #fff;
       box-shadow: 0 8px 28px rgba(255, 107, 53, .42)
     }
@@ -1232,6 +1261,101 @@ background: linear-gradient(135deg, var(--pk), #6360e2);
     .slide-counter span {
       color: var(--pk)
     }
+
+    @media (max-width: 860px) {
+      .hero {
+        height: auto;
+        min-height: 640px;
+      }
+      .slide {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding: 40px 5%;
+      }
+      .slide-text {
+        text-align: center;
+      }
+      .slide-desc {
+        max-width: 100%;
+        margin: 0 auto 28px;
+      }
+      .hero-btns {
+        justify-content: center;
+      }
+      .hero-trust {
+        justify-content: center;
+      }
+      .slide-visual {
+        justify-content: center;
+      }
+      .gummy-showcase {
+        width: min(100%, 360px);
+        height: auto;
+        margin: 0 auto;
+      }
+      .jar-wrap {
+        width: min(100%, 280px);
+        height: auto;
+        margin: 40px auto 0;
+      }
+      .jar-body1 img,
+      .jar-body2 img {
+        width: 100%;
+        height: auto;
+      }
+      .slide-counter {
+        top: auto;
+        bottom: 90px;
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+      }
+      .slide-dots {
+        bottom: 50px;
+      }
+      .sarrow {
+        top: auto;
+        bottom: 20px;
+        width: 44px;
+        height: 44px;
+      }
+      .sp {
+        left: 20px;
+      }
+      .sn {
+        right: 20px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .slide {
+        padding: 32px 4%;
+      }
+      .slide-badge {
+        font-size: .68rem;
+        padding: 6px 16px;
+      }
+      .htitle {
+        font-size: clamp(2rem, 6vw, 2.8rem);
+      }
+      .slide-desc {
+        font-size: .95rem;
+      }
+      .hero-btns {
+        flex-direction: column;
+      }
+      .hbtn {
+        width: 100%;
+        justify-content: center;
+      }
+      .slide-counter {
+        bottom: 70px;
+      }
+      .slide-dots {
+        bottom: 20px;
+      }
+    }
+
 /* product page start*/
 
 /* ── PRODUCT HERO ── */
@@ -4258,46 +4382,35 @@ background: linear-gradient(135deg, var(--pk), #6360e2);
 @media (max-width: 640px) { .nb-hide-sm { display: none; } }
 
 /* end product page */
-/* ══════════════════════════════════════════
-   06. TRUST BAR (Scrolling Ticker)
-══════════════════════════════════════════ */
-.tbar {
-  background: linear-gradient(90deg, #ff4d8f85, #e41212a3, #00bfff82);
-  padding: 16px 0;
-  overflow: hidden;
-  position: relative;
-}
+   /* ── TRUST BAR ── */
+    .tbar {
+      background: var(--dk);
+      padding: 16px 0;
+      overflow: hidden;
+      position: relative
+    }
 
-.tscroll {
-  display: flex;
-  gap: 52px;
-  animation: scrollL 22s linear infinite;
-  width: max-content;
-}
+    .tscroll {
+      display: flex;
+      gap: 52px;
+      animation: scrollL 22s linear infinite;
+      width: max-content
+    }
 
-.titem {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: rgb(0, 0, 0);
-  font-family: 'Nunito', sans-serif;
-  font-weight: 600;
-  font-size: 1.1rem;
-  white-space: nowrap;
-}
+    .titem {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ye);
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: .85rem;
+      white-space: nowrap
+    }
 
-.titem .tic {
-  font-size: 1.15rem;
-}
-
-.tic img {
-  width: 35px;
-}
-
-.sball img {
-  height: 49px;
-}
-
+    .titem .tic {
+      font-size: 1.15rem
+    }
 /* ══════════════════════════════════════════
    07. TRUST INDICATORS
 ══════════════════════════════════════════ */
@@ -7442,7 +7555,7 @@ background: linear-gradient(135deg, var(--pk), #6360e2);
 /* Link Columns */
 .fw-links h4 {
   font-family: 'Arial', sans-serif;
-  color: #ff4d8f;
+  color: #1027b7;
   font-size: 1.05rem;
   margin-bottom: 18px;
   position: relative;
@@ -7501,7 +7614,7 @@ background: linear-gradient(135deg, var(--pk), #6360e2);
 /* Subscribe Column */
 .fw-subscribe h4 {
   font-family: 'Arial', sans-serif;
-  color: #ff4d8f;
+  color:#1027b7;;
   font-size: 1.05rem;
   margin-bottom: 10px;
   position: relative;
@@ -7559,7 +7672,7 @@ background: linear-gradient(135deg, var(--pk), #6360e2);
 }
 
 .subs-btn {
-  background: linear-gradient(135deg, var(--pk), var(--pkd));
+  background: linear-gradient(135deg, var(--pk), #6360e2);;
   color: #fff;
   border: none;
   border-radius: 50px;
@@ -7619,7 +7732,7 @@ background: linear-gradient(135deg, var(--pk), #6360e2);
 
 /* Bottom Bar — FIXED: unified color from both files */
 .footer-bottom-bar {
-  background: #fe8eb8;
+  background:linear-gradient(135deg, var(--pk), #6360e2);
   padding: 18px 5%;
   display: flex;
   align-items: center;
@@ -9300,7 +9413,7 @@ background: linear-gradient(135deg, var(--pk), #6360e2);
 }
 
 .hbtn-main {
-  background: linear-gradient(135deg, var(--pk), #6360e2);
+  background:      linear-gradient(135deg, var(--pk), #6360e2);
   color: #fff;
 }
 
@@ -9761,6 +9874,7 @@ background: linear-gradient(135deg, var(--pk), #6360e2);
 
   nav {
     padding: 0 4%;
+    height: 85px;
   }
 
   .new-slide img {
@@ -9896,7 +10010,7 @@ background: linear-gradient(135deg, var(--pk), #6360e2);
 /* Very Small: ≤400px */
 @media (max-width: 400px) {
   .logo-new img {
-    width: 130px !important;
+    width: 193px !important;
   }
 
   #cartIconBtn {
