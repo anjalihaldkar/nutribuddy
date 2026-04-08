@@ -354,7 +354,7 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
   const viewport = document.getElementById('reelsViewport');
   const btnPrev  = document.getElementById('reelPrev');
   const btnNext  = document.getElementById('reelNext');
-  const dots     = document.querySelectorAll('.reels-dot');
+  const dots     = Array.from(document.querySelectorAll('.reels-dot'));
   if (!track || !viewport) return;
 
   const cards    = Array.from(track.querySelectorAll('.reel'));
@@ -373,13 +373,21 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
     return Math.max(0, cards.length - perView());
   }
 
+  function updateDots() {
+    const max = maxIndex();
+    dots.forEach((d, i) => {
+      d.style.display = i <= max ? '' : 'none';
+      d.classList.toggle('active', i === current);
+    });
+  }
+
   function goTo(idx) {
     current = Math.max(0, Math.min(idx, maxIndex()));
     const cw     = cards[0] ? cards[0].offsetWidth : 200;
     const offset = current * (cw + GAP);
     track.style.transform = 'translateX(-' + offset + 'px)';
 
-    dots.forEach((d, i) => d.classList.toggle('active', i === current));
+    updateDots();
     if (btnPrev) btnPrev.disabled = current === 0;
     if (btnNext) btnNext.disabled = current >= maxIndex();
   }
@@ -387,6 +395,14 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
   if (btnPrev) btnPrev.addEventListener('click', () => goTo(current - 1));
   if (btnNext) btnNext.addEventListener('click', () => goTo(current + 1));
   dots.forEach(d => d.addEventListener('click', () => goTo(+d.dataset.index)));
+
+  function refresh() {
+    goTo(Math.min(current, maxIndex()));
+  }
+
+  window.addEventListener('load', refresh);
+  document.addEventListener('DOMContentLoaded', refresh);
+  refresh();
 
   let touchStartX = 0;
   viewport.addEventListener('touchstart', e => {
@@ -400,7 +416,7 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
   let resizeTimer;
   window.addEventListener('resize', () => {
     clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => goTo(Math.min(current, maxIndex())), 120);
+    resizeTimer = setTimeout(refresh, 120);
   });
 
   function playReel(idx) {
