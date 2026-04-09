@@ -66,7 +66,8 @@ html {
 
 body {
   font-family: 'DM Sans', sans-serif;
-  background: var(--cr);
+  /* background: var(--cr); */
+  background: linear-gradient(145deg, #FFF0FA, #F0E5FF, #FFDCF0);
   color: var(--dk);
   overflow-x: hidden;
 }
@@ -1356,7 +1357,84 @@ background: linear-gradient(135deg, var(--pk), #6360e2);
       }
     }
 
+
+
+    /* add ooo */
+
+    .newcarda {
+          display: flex;
+    align-items: center;
+    gap: 12px;
+}
+    
+    .pc-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 10px 0 14px;
+}
+
+/* Pills */
+.pc-features span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #c8d1ff;
+  color: #5a6cff;
+  padding:3px 3px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+/* Icon */
+.pc-features span i {
+  font-style: normal;
+  font-size: 0.9rem;
+}
+
+/* Hover Effect (Desktop) */
+.pc-features span:hover {
+  background: #5a6cff;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* 📱 Mobile (small devices) */
+@media (max-width: 576px) {
+  .pc-features {
+    gap: 6px;
+  }
+
+  .pc-features span {
+    font-size: 0.75rem;
+    padding: 5px 10px;
+  }
+}
+
+/* 📲 Tablet */
+@media (max-width: 768px) {
+  .pc-features span {
+    font-size: 0.8rem;
+    padding: 6px 10px;
+  }
+}
+
+/* 💻 Large screens */
+@media (min-width: 1200px) {
+  .pc-features span {
+    font-size: 0.9rem;
+    padding: 5px 8px;
+  }
+}
+
 /* product page start*/
+
+
+
 
 /* ── PRODUCT HERO ── */
 .pdp-hero {
@@ -2487,6 +2565,10 @@ background: linear-gradient(135deg, var(--pk), #6360e2);
 }
 
 /* Variant Selectors */
+.arrange {
+  display: flex;
+  gap:34px;
+}
 .variant-block {
   margin-bottom: 20px;
 }
@@ -2560,6 +2642,9 @@ background: linear-gradient(135deg, var(--pk), #6360e2);
 .flavor-opt.active {
   border-color: var(--pk);
   background: var(--pkl);
+}
+.flavor-emoji img {
+  height: 32px;
 }
 
 .flavor-emoji {
@@ -8055,7 +8140,7 @@ background: linear-gradient(135deg, var(--pk), #6360e2);
   align-items: start;
   max-width: 1260px;
   margin: 0 auto;
-  padding: 100px 5% 60px;
+  padding: 115px 5% 60px;
 }
 
 /* ── Gallery ── */
