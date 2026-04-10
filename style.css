@@ -27,6 +27,7 @@
    01. CSS VARIABLES & RESET
 ══════════════════════════════════════════ */
 :root {
+  --btn: linear-gradient(135deg, var(--pk), #6360e2);
   --pk: #FF4D8F;
   --pkl: #FFD6E8;
   --pkd: #C0306F;
@@ -329,7 +330,7 @@ nav.scrolled {
 
 /* CTA Button */
 .nav-cta {
-background: linear-gradient(135deg, var(--pk), #6360e2);
+background: var(--btn);
   color: #ffffff !important;
   padding: 10px 20px;
   border-radius: 50px;
@@ -468,7 +469,7 @@ background: linear-gradient(135deg, var(--pk), #6360e2);
 .mobile-cta-wrap a {
   display: block;
   text-align: center;
-  background: var(--pk);
+  background: var(--btn);
   color: #fff;
   padding: 14px 24px;
   border-radius: 50px;
@@ -571,6 +572,10 @@ background: linear-gradient(135deg, var(--pk), #6360e2);
   font-size: 2rem;
   flex-shrink: 0;
 }
+.image-box img {
+  width: 41px;
+  height: 61px;
+}
 
 .single-cart-box h5 {
   font-family: 'Nunito', sans-serif;
@@ -581,9 +586,9 @@ background: linear-gradient(135deg, var(--pk), #6360e2);
 }
 
 .single-cart-box h4 {
-  font-family: 'Fredoka One', cursive;
+  font-family: 'Nunito', sans-serif;
   font-size: 1rem;
-  color: var(--pk);
+  color: var(--dk);
 }
 
 .single-cart-box button {
@@ -655,12 +660,12 @@ background: linear-gradient(135deg, var(--pk), #6360e2);
 }
 
 .btn-box a:first-child:hover {
- background: linear-gradient(135deg, var(--pk), #6360e2);
+ background: var(--btn);
   color: #fff;
 }
 
 .btn-box a:last-child {
-  background: linear-gradient(135deg, var(--pk), #6360e2);
+  background: var(--btn);
   color: #fff;
 }
 
@@ -893,7 +898,7 @@ background: linear-gradient(135deg, var(--pk), #6360e2);
     }
 
     .hbtn-main {
-     background: linear-gradient(135deg, var(--pk), #6360e2);
+     background: var(--btn);
       color: #fff;
       box-shadow: 0 8px 28px rgba(255, 77, 143, .42)
     }
@@ -1358,78 +1363,6 @@ background: linear-gradient(135deg, var(--pk), #6360e2);
     }
 
 
-
-    /* add ooo */
-
-    .newcarda {
-          display: flex;
-    align-items: center;
-    gap: 12px;
-}
-    
-    .pc-features {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin: 10px 0 14px;
-}
-
-/* Pills */
-.pc-features span {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  background: #c8d1ff;
-  color: #5a6cff;
-  padding:3px 3px;
-  border-radius: 20px;
-  font-size: 0.85rem;
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 500;
-  white-space: nowrap;
-  transition: all 0.3s ease;
-}
-
-/* Icon */
-.pc-features span i {
-  font-style: normal;
-  font-size: 0.9rem;
-}
-
-/* Hover Effect (Desktop) */
-.pc-features span:hover {
-  background: #5a6cff;
-  color: #fff;
-  transform: translateY(-2px);
-}
-
-/* 📱 Mobile (small devices) */
-@media (max-width: 576px) {
-  .pc-features {
-    gap: 6px;
-  }
-
-  .pc-features span {
-    font-size: 0.75rem;
-    padding: 5px 10px;
-  }
-}
-
-/* 📲 Tablet */
-@media (max-width: 768px) {
-  .pc-features span {
-    font-size: 0.8rem;
-    padding: 6px 10px;
-  }
-}
-
-/* 💻 Large screens */
-@media (min-width: 1200px) {
-  .pc-features span {
-    font-size: 0.9rem;
-    padding: 5px 8px;
-  }
-}
 
 /* product page start*/
 
@@ -2307,7 +2240,7 @@ background: linear-gradient(135deg, var(--pk), #6360e2);
 .ps-cta {
   background: linear-gradient(135deg, var(--pk) 0%, var(--pkd) 40%, var(--pu) 100%);
   border-radius: 22px;
-  padding: 44px 36px;
+  padding: 21px 36px;
   text-align: center;
   margin-top: 56px;
   position: relative;
@@ -2342,11 +2275,13 @@ background: linear-gradient(135deg, var(--pk), #6360e2);
   position: relative;
   z-index: 2;
 }
-
+.cta-emoji img {
+  width: 100px;
+}
 .cta-emoji {
   font-size: 2.8rem;
   display: block;
-  margin-bottom: 12px;
+  margin-bottom: 3px;
   animation: gFloat 3.5s ease-in-out infinite;
 }
 
@@ -4722,6 +4657,80 @@ background: linear-gradient(135deg, var(--pk), #6360e2);
   color: var(--dk);
   margin-bottom: 8px;
 }
+
+
+    /* add ooo */
+
+    .newcarda {
+          display: flex;
+    align-items: center;
+    gap: 12px;
+}
+    
+    .pc-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 10px 0 14px;
+}
+
+/* Pills */
+.pc-features span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #f8e0e9;
+  color: #393941;
+  padding:3px 3px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+/* Icon */
+.pc-features span i {
+  font-style: normal;
+  font-size: 0.9rem;
+}
+
+/* Hover Effect (Desktop) */
+.pc-features span:hover {
+  background: #5a6cff;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* 📱 Mobile (small devices) */
+@media (max-width: 576px) {
+  .pc-features {
+    gap: 6px;
+  }
+
+  .pc-features span {
+    font-size: 0.75rem;
+    padding: 5px 10px;
+  }
+}
+
+/* 📲 Tablet */
+@media (max-width: 768px) {
+  .pc-features span {
+    font-size: 0.8rem;
+    padding: 6px 10px;
+  }
+}
+
+/* 💻 Large screens */
+@media (min-width: 1200px) {
+  .pc-features span {
+    font-size: 0.9rem;
+    padding: 5px 8px;
+  }
+}
+
 
 .pc-desc {
   font-size: .86rem;
@@ -7757,7 +7766,7 @@ background: linear-gradient(135deg, var(--pk), #6360e2);
 }
 
 .subs-btn {
-  background: linear-gradient(135deg, var(--pk), #6360e2);;
+  background: var(--btn);
   color: #fff;
   border: none;
   border-radius: 50px;
@@ -7817,7 +7826,7 @@ background: linear-gradient(135deg, var(--pk), #6360e2);
 
 /* Bottom Bar — FIXED: unified color from both files */
 .footer-bottom-bar {
-  background:linear-gradient(135deg, var(--pk), #6360e2);
+  background: var(--btn);
   padding: 18px 5%;
   display: flex;
   align-items: center;
@@ -8571,14 +8580,14 @@ background: linear-gradient(135deg, var(--pk), #6360e2);
 }
 
 .btn-cart:hover {
- background: linear-gradient(135deg, var(--pk), #6360e2);
+ background: var(--btn);
   color: #fff;
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(255, 77, 143, .3);
 }
 
 .btn-buy {
- background: linear-gradient(135deg, var(--pk), #6360e2);
+ background: var(--btn);
   color: #fff;
 }
 
@@ -9499,7 +9508,7 @@ background: linear-gradient(135deg, var(--pk), #6360e2);
 }
 
 .hbtn-main {
-  background:      linear-gradient(135deg, var(--pk), #6360e2);
+  background: var(--btn);
   color: #fff;
 }
 
