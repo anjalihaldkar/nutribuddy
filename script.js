@@ -156,6 +156,30 @@ document.querySelectorAll('.single-cart-box button').forEach(btn => {
   });
 });
 
+/* ══════════════════════════════════════════
+   PRODUCT GALLERY
+══════════════════════════════════════════ */
+const thumbs = document.querySelectorAll('.thumb');
+const mainImgWrap = document.querySelector('.main-img-wrap .p-image');
+
+thumbs.forEach((thumb, index) => {
+  thumb.addEventListener('click', () => {
+    // Remove active from all thumbs
+    thumbs.forEach(t => t.classList.remove('active'));
+    // Add active to clicked thumb
+    thumb.classList.add('active');
+    // Change main image src
+    const thumbImg = thumb.querySelector('img');
+    if (thumbImg && mainImgWrap) {
+      const newSrc = thumbImg.src;
+      const mainImage = mainImgWrap.querySelector('img');
+      if (mainImage) {
+        mainImage.src = newSrc;
+      }
+    }
+  });
+});
+
 
 /* ══════════════════════════════════════════
    05. HERO SLIDER + SPARKS
