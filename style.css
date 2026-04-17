@@ -1416,16 +1416,33 @@ background: var(--btn);
   width: 100%;
   height: 100%;
   overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
+}
+
+.pc-emoji.p-image {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .p-image img {
   width: 100%;
   height: 100%;
- 
+  object-fit: cover;
   transition: transform 0.5s ease;
+}
+
+/* For nutribuddy product cards - needs absolute positioning for animation */
+.pc-emoji.p-image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* For product page main image - no absolute positioning needed */
+.main-img-wrap .p-image img {
+  position: static;
+  display: block;
 }
 
 .p-image .default-img {
