@@ -123,26 +123,60 @@
             <div class="variant-block">
                 <div class="variant-label">{{ $product->name }} Features </div>
                 <div class="variant-row" id="flavorRow">
-                    <div class="flavor-opt active">
-                        <div class="flavor-emoji"> <img src="{{ asset('img/sugar.png') }}" alt=""></div>
-                        <div class="flavor-name">No Added Sugar</div>
-                    </div>
-                    <div class="flavor-opt active">
-                        <div class="flavor-emoji"> <img src="{{ asset('img/no-preservatives.png') }}" alt=""></div>
-                        <div class="flavor-name">No Preservatives</div>
-                    </div>
-                    <div class="flavor-opt active">
-                        <div class="flavor-emoji"> <img src="{{ asset('img/no-artificial-colours.png') }}" alt=""> </div>
-                        <div class="flavor-name">No Colours<br>Added</div>
-                    </div>
-                    <div class="flavor-opt active">
-                        <div class="flavor-emoji"><img src="{{ asset('img/natural.png') }}" alt=""></div>
-                        <div class="flavor-name">Rooted in <br> Ayurveda</div>
-                    </div>
-                    <div class="flavor-opt active">
-                        <div class="flavor-emoji"><img src="{{ asset('img/tag.png') }}" alt=""></div>
-                        <div class="flavor-name">No Gelatin <br> Plant Based Pectin</div>
-                    </div>
+                    @php
+                        $tags = $product->tags ?? [];
+                        // Backward compatibility for old string tags
+                        if (is_string($tags)) {
+                            $tags = array_map(function($t) {
+                                preg_match('/^([\x{1F300}-\x{1F9FF}\x{2600}-\x{26FF}\x{2700}-\x{27BF}])?\s*(.*)$/u', $t, $m);
+                                return ['icon' => $m[1] ?? '', 'text' => $m[2] ?? $t];
+                            }, array_filter(array_map('trim', explode(',', $tags))));
+                        }
+                    @endphp
+
+                    @if(is_array($tags) && count($tags) > 0)
+                        @foreach($tags as $tag)
+                            <div class="flavor-opt active">
+                                <div class="flavor-emoji">
+                                    @if(!empty($tag['icon']))
+                                        @php
+                                            $isFilePath = str_contains($tag['icon'], 'tags/');
+                                        @endphp
+                                        @if($isFilePath)
+                                            <img src="{{ asset('storage/' . $tag['icon']) }}" alt="" style="width: 28px; height: 28px; object-fit: contain;">
+                                        @else
+                                            <span style="font-size: 28px; display: inline-block;">{{ $tag['icon'] }}</span>
+                                        @endif
+                                    @else
+                                        <span style="font-size: 28px; display: inline-block;">✨</span>
+                                    @endif
+                                </div>
+                                <div class="flavor-name">{!! nl2br(e($tag['text'] ?? '')) !!}</div>
+                            </div>
+                        @endforeach
+                    @else
+                        <!-- Fallback static features if no tags -->
+                        <div class="flavor-opt active">
+                            <div class="flavor-emoji"> <img src="{{ asset('img/sugar.png') }}" alt=""></div>
+                            <div class="flavor-name">No Added Sugar</div>
+                        </div>
+                        <div class="flavor-opt active">
+                            <div class="flavor-emoji"> <img src="{{ asset('img/no-preservatives.png') }}" alt=""></div>
+                            <div class="flavor-name">No Preservatives</div>
+                        </div>
+                        <div class="flavor-opt active">
+                            <div class="flavor-emoji"> <img src="{{ asset('img/no-artificial-colours.png') }}" alt=""> </div>
+                            <div class="flavor-name">No Colours<br>Added</div>
+                        </div>
+                        <div class="flavor-opt active">
+                            <div class="flavor-emoji"><img src="{{ asset('img/natural.png') }}" alt=""></div>
+                            <div class="flavor-name">Rooted in <br> Ayurveda</div>
+                        </div>
+                        <div class="flavor-opt active">
+                            <div class="flavor-emoji"><img src="{{ asset('img/tag.png') }}" alt=""></div>
+                            <div class="flavor-name">No Gelatin <br> Plant Based Pectin</div>
+                        </div>
+                    @endif
                 </div>
             </div>
 
