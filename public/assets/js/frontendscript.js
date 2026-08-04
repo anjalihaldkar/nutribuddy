@@ -1530,6 +1530,105 @@ function initNutriBuddy() {
 
 
   /* ══════════════════════════════════════════
+     12b. TEXT REVIEWS SLIDER
+  ══════════════════════════════════════════ */
+  (function () {
+    const track = document.getElementById('wreviewsTrack');
+    const viewport = document.getElementById('wreviewsViewport');
+    const btnPrev = document.getElementById('wrevPrev');
+    const btnNext = document.getElementById('wrevNext');
+    const dotsContainer = document.getElementById('wreviewsDots');
+
+    if (!track || !viewport) return;
+
+    const cards = Array.from(track.querySelectorAll('.wrev'));
+    if (cards.length === 0) return;
+
+    const GAP = 22;
+    let current = 0;
+
+    function perView() {
+      if (window.innerWidth <= 576) return 1;
+      if (window.innerWidth <= 991) return 2;
+      return 3;
+    }
+
+    function maxIndex() {
+      return Math.max(0, cards.length - perView());
+    }
+
+    function buildDots() {
+      if (!dotsContainer) return;
+      dotsContainer.innerHTML = '';
+      const max = maxIndex();
+      
+      if (max <= 0) {
+        if (btnPrev) btnPrev.style.display = 'none';
+        if (btnNext) btnNext.style.display = 'none';
+        return;
+      } else {
+        if (btnPrev) btnPrev.style.display = '';
+        if (btnNext) btnNext.style.display = '';
+      }
+
+      const totalDots = max + 1;
+      for (let i = 0; i < totalDots; i++) {
+        const dot = document.createElement('button');
+        dot.className = 'wdot' + (i === current ? ' active' : '');
+        dot.dataset.index = i;
+        dot.setAttribute('aria-label', 'Go to review page ' + (i + 1));
+        dot.addEventListener('click', () => goTo(i));
+        dotsContainer.appendChild(dot);
+      }
+    }
+
+    function updateDots() {
+      if (!dotsContainer) return;
+      const dots = Array.from(dotsContainer.querySelectorAll('.wdot'));
+      dots.forEach((d, i) => {
+        d.classList.toggle('active', i === current);
+      });
+    }
+
+    function goTo(idx) {
+      current = Math.max(0, Math.min(idx, maxIndex()));
+      const cw = cards[0].offsetWidth;
+      const offset = current * (cw + GAP);
+      track.style.transform = 'translateX(-' + offset + 'px)';
+      updateDots();
+
+      if (btnPrev) btnPrev.disabled = current === 0;
+      if (btnNext) btnNext.disabled = current >= maxIndex();
+    }
+
+    if (btnPrev) btnPrev.addEventListener('click', () => goTo(current - 1));
+    if (btnNext) btnNext.addEventListener('click', () => goTo(current + 1));
+
+    function refresh() {
+      buildDots();
+      goTo(Math.min(current, maxIndex()));
+    }
+
+    window.addEventListener('load', refresh);
+    document.addEventListener('DOMContentLoaded', refresh);
+    refresh();
+
+    let touchStartX = 0;
+    viewport.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+    viewport.addEventListener('touchend', e => {
+      const dx = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(dx) > 40) goTo(dx > 0 ? current + 1 : current - 1);
+    });
+
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(refresh, 120);
+    });
+  })();
+
+
+  /* ══════════════════════════════════════════
      13. FAQ ACCORDION
   ══════════════════════════════════════════ */
   document.querySelectorAll('.faq-q').forEach(btn => {
